@@ -10,6 +10,36 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
+    <header class ="bg-info">
+        <h1 class ="text-center">Weather Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class=" col-3">
+                <h2>Search for a city </h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="cityName" placeholder="City Name">
+                </div>
+                <button type="button" class="btn btn-block btn-info" id="submit">Search city</button>
+            </div>
+            <ul class="list-group" id="history">
+
+            </ul>
+        </div>
+        <div class="col-9" id="displayBox">
+            <div class="row">
+                <div class="col-12" id="current">
+                    <h1>current city</h1>
+                    <h2>
+                        <span id="current-city"></span>
+                        <span id="date"></span>
+                        <span id="currentIcon"></span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./assets/script.js"></script>
 </body>
 </html>
