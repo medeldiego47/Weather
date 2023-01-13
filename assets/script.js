@@ -22,8 +22,7 @@ function ApiCall(city) {
         `;
 
         fetch(weatherUrl).then((data)=>{return data.json();}).then((data)=>{
-            save(city);
-            displayHistory();
+           
 
             document.getElementById('current-city').textContent=city;
              document.getElementById('date').textContent=new Date(data.current.dt*1000);
@@ -33,9 +32,15 @@ function ApiCall(city) {
               document.getElementById('humidityNow').textContent=data.current.humidity;
               document.getElementById('uvNow').textContent=data.current.uvi;
 
+              for(var i=1; i <6; i++){
+                var dailyData =data.daily[i];
+                    document.getElementById(`temp-${i}`).textContent =dailyData.temp.day;
+                    document.getElementById(`wind-${i}`).textContent =dailyData.wind_speed;
+                    document.getElementById(`humidity-${i}`).textContent =dailyData.humidity;
+                  
+
+
+              }
         })
-    })
+    }).catch(()=>{alert('unknown city please try again')})};
 
-
-
-};
